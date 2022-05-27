@@ -144,6 +144,11 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.3.tgz#6801033be7ff87a6b7cadaf5b337c9f366a3c4b0"
   integrity sha512-WiBSI6JBIhC6LRIsB2Kwh8DsGTlbBU+mLRxJmAe3LjHTdkDpwIbEOZgoXBbZilk/vlfjK8i6nKRAvIRn1XaIMw==
 
+"@sindresorhus/class-names@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/class-names/-/class-names-2.0.0.tgz#ad8d7a1819491732021b1c6131cd58d5b99dc256"
+  integrity sha512-TB+lfchVEdXDVZ0huItEbKT7EMnMrGT9gfCI5B9Mg5CjUgyeqwQBcRA66Kwcu4FU3jtOUpUyMYWI1/nDq+VS0Q==
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
@@ -309,6 +314,11 @@ ast-types-flow@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
   integrity sha512-eBvWn1lvIApYMhzQMsu9ciLfkBY499mFZlNqG+/9WR7PVlroQw0vG30cOQQbaKz3sCEc44TAOu2ykzqXSNnwag==
+
+auto-bind@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/auto-bind/-/auto-bind-5.0.1.tgz#50d8e63ea5a1dddcb5e5e36451c1a8266ffbb2ae"
+  integrity sha512-ooviqdwwgfIfNmDwo94wlshcdzfO64XV0Cg6oDsDYBJfITDz1EngD2z7DkbvCWn+XIMsIqW27sEVF6qcpJrRcg==
 
 axe-core@^4.3.5:
   version "4.4.2"
@@ -1408,6 +1418,15 @@ react-dom@18.1.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.22.0"
+
+react-extras@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-extras/-/react-extras-3.0.0.tgz#a7f9e324b60ffb0d44b1ca259087bab4666b0fb3"
+  integrity sha512-pI218nDe4SATv9SrNM95uPV87ZFcAw1V36DHhrtZYShjt7sDGETv+3p7e0SwFOUTr3hkION7iNuTCUuXcJdlQw==
+  dependencies:
+    "@sindresorhus/class-names" "^2.0.0"
+    auto-bind "^5.0.1"
+    prop-types "^15.8.1"
 
 react-is@^16.13.1:
   version "16.13.1"

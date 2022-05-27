@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #44475a;
+  color: #f8f8f2;
+  font-weight: 300;
+
+  border-radius: 16px;
+  cursor: pointer;
+  
+  width: 64px;
+  height: 64px;
+
+  margin: 0 4px;
+}
+
+.container:hover {
+  background-color: #6272a4;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.selected {
+  background-color: #6272a4;
+}

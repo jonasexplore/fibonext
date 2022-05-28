@@ -18,7 +18,7 @@
 
 .container:hover {
   background-color: #6272a4;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .selected {

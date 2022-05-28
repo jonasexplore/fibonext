@@ -1,0 +1,39 @@
+.container {
+  border: none;
+  border-radius: 8px;
+  background-color: #44475a;
+
+  margin-bottom: 8px;
+  padding: 8px 16px;
+
+  color: #f8f8f2;
+  cursor: pointer;
+  font-size: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container:hover {
+  transition: background-color 0.4s ease-in-out;
+  background-color: #bd93f9;
+}
+
+.container:focus {
+  transition: background-color 0.4s ease-in-out;
+  background-color: #ff79c6;
+}
+
+.large {
+  width: 192px;
+  height: 192px;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 8px;
+}
+
+.icon {
+  margin-bottom: 4px;
+}

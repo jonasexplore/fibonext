@@ -6,8 +6,6 @@
   height: 80vh;
 }
 
-.groupButtons {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.button {
+  margin-top: 12px;
 }

@@ -1,18 +1,33 @@
-import { Fragment } from "react";
-import { If } from "react-extras";
+import Link from "next/link";
+import { ButtonHTMLAttributes, DetailedHTMLProps, Fragment } from "react";
+import { Choose, If } from "react-extras";
 import styles from "./button.module.css";
 
-type Props = {
+type Props = Partial<
+  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+> & {
   children: React.ReactNode;
   large?: boolean;
   icon?: any;
+  href?: string;
 };
 
-export const Button = ({ children, large, icon }: Props) => (
-  <button className={`${styles.container} ${large && styles.large}`}>
-    <If condition={Boolean(icon)}>
-      <div className={styles.icon}>{icon}</div>
-    </If>
-    {children}
-  </button>
-);
+export const Button = ({ children, large, icon, href }: Props) => {
+  const CustomButton = (
+    <button className={`${styles.container} ${large && styles.large}`}>
+      <If condition={Boolean(icon)}>
+        <div className={styles.icon}>{icon}</div>
+      </If>
+      {children}
+    </button>
+  );
+
+  return (
+    <Choose>
+      <Choose.When condition={Boolean(href)}>
+        <Link href={String(href)}>{CustomButton}</Link>
+      </Choose.When>
+      <Choose.Otherwise>{CustomButton}</Choose.Otherwise>
+    </Choose>
+  );
+};

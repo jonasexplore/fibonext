@@ -7,7 +7,9 @@ type Props = {
 };
 
 export const CardList = ({ cards }: Props) => {
-  const renderCards = (number: Number) => <Card number={number} />;
+  const renderCards = (number: Number, index: Number) => (
+    <Card key={Number(index)} number={number} />
+  );
 
   return (
     <div className={styles.container}>

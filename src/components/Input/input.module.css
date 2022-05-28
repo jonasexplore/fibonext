@@ -1,0 +1,12 @@
+.input {
+  /* padding: 16px; */
+  padding: 16px;
+
+  background-color: #44475a;
+  border: none;
+  border-radius: 8px;
+
+  color: #f8f8f2;
+
+  font-size: 24px;
+}

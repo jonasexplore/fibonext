@@ -33,6 +33,7 @@ const Connect: NextPage = () => {
         />
         <div className={styles.button}>
           <Button type="submit">Entrar</Button>
+          <Button href="/">Voltar</Button>
         </div>
       </div>
     </form>

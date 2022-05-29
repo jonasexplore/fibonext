@@ -3,14 +3,14 @@ import { useContext } from "react";
 
 import { GameContext } from "../../contexts/game";
 import styles from "../../styles/room.module.css";
-import { Button, CardList, User, Text } from "../../components";
+import { Button, CardList, Text, UserList } from "../../components";
 
 const Room: NextPage = () => {
   const { cards } = useContext(GameContext);
 
   return (
     <div className={styles.container}>
-      <User />
+      <UserList users={["1", "2", "3"]} />
       <Text>Escolha uma das opções abaixo:</Text>
       <CardList cards={cards} />
       <div className={styles.optionButtons}>

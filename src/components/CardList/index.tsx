@@ -1,5 +1,5 @@
 import { For, If } from "react-extras";
-import styles from "./cardList.module.css";
+import styles from "./card-list.module.css";
 import { Card } from "../Card";
 
 type Props = {

@@ -1,4 +1,4 @@
-export function generateId(length: Number) {
+export function generateId(length: number) {
   let result = "";
 
   const characters =

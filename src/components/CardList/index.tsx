@@ -3,12 +3,13 @@ import styles from "./card-list.module.css";
 import { Card } from "../Card";
 
 type Props = {
-  cards: Number[];
+  cards: number[];
+  disable?: boolean;
 };
 
-export const CardList = ({ cards }: Props) => {
-  const renderCards = (number: Number, index: Number) => (
-    <Card key={Number(index)} number={number} />
+export const CardList = ({ cards, disable = false }: Props) => {
+  const renderCards = (number: number, index: number) => (
+    <Card key={Number(index)} number={number} disable={disable} />
   );
 
   return (

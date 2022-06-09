@@ -12,9 +12,12 @@ type Props = Partial<
   href?: string;
 };
 
-export const Button = ({ children, large, icon, href }: Props) => {
+export const Button = ({ children, large, icon, href, ...props }: Props) => {
   const CustomButton = (
-    <button className={`${styles.container} ${large && styles.large}`}>
+    <button
+      className={`${styles.container} ${large && styles.large}`}
+      {...props}
+    >
       <If condition={Boolean(icon)}>
         <div className={styles.icon}>{icon}</div>
       </If>

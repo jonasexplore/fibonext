@@ -6,9 +6,10 @@ import styles from "./card.module.css";
 type Props = {
   number: number;
   disable?: boolean;
+  hide?: boolean;
 };
 
-export const Card = ({ number, disable = false }: Props) => {
+export const Card = ({ number, disable = false, hide = false }: Props) => {
   const { setSelectedCard, selectedCard } = useContext(GameContext);
 
   return (
@@ -19,7 +20,7 @@ export const Card = ({ number, disable = false }: Props) => {
             selectedCard === number && styles.selected
           }`}
         >
-          {`${number}`}
+          {hide ? "?" : `${number}`}
         </div>
       </Choose.When>
       <Choose.Otherwise>

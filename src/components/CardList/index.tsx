@@ -5,11 +5,12 @@ import { Card } from "../Card";
 type Props = {
   cards: number[];
   disable?: boolean;
+  hide?: boolean;
 };
 
-export const CardList = ({ cards, disable = false }: Props) => {
+export const CardList = ({ cards, disable = false, hide = false }: Props) => {
   const renderCards = (number: number, index: number) => (
-    <Card key={Number(index)} number={number} disable={disable} />
+    <Card key={Number(index)} number={number} disable={disable} hide={hide} />
   );
 
   return (

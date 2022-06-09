@@ -6,6 +6,7 @@ import { Button } from "../components";
 import EnterIcon from "../assets/enter.svg";
 import CreateIcon from "../assets/create.svg";
 import { generateId } from "../utils";
+import { profiles } from "../types/enums";
 
 const Home: NextPage = () => {
   return (
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
             />
           }
           href={`/room/${generateId(7)}`}
+          onClick={() => sessionStorage.setItem("clientProfile", profiles.HOST)}
         >
           Criar sala
         </Button>

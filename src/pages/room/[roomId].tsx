@@ -8,7 +8,9 @@ import { useRouter } from "next/router";
 import { useSocket } from "../../hooks/useSocket";
 
 const Room: NextPage = () => {
-  const socket = useSocket(process.env.API_URL || "http://localhost:3333");
+  const socket = useSocket(
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3333"
+  );
 
   const { cards, selectedCard } = useContext(GameContext);
   const [votes, setVotes] = useState<Array<number>>([]);

@@ -8,9 +8,7 @@ import { useRouter } from "next/router";
 import { useSocket } from "../../hooks/useSocket";
 
 const Room: NextPage = () => {
-  const socket = useSocket(
-    process.env.NEXT_PUBLIC_API_URL || "http://localhost:3333"
-  );
+  const socket = useSocket(String(process.env.NEXT_PUBLIC_API_URL));
 
   const { cards, selectedCard } = useContext(GameContext);
   const [votes, setVotes] = useState<Array<number>>([]);
@@ -67,7 +65,9 @@ const Room: NextPage = () => {
       <CardList cards={cards} />
       <div className={styles.optionButtons}>
         <Button onClick={handleReset}>Resetar</Button>
-        <Button onClick={handleVisibility}>Revelar</Button>
+        <Button onClick={handleVisibility}>
+          {hide ? "Revelar" : "Esconder"}
+        </Button>
         <Button href="/">Voltar</Button>
       </div>
       <br />

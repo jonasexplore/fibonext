@@ -6,15 +6,9 @@ import styles from "../../styles/room.module.css";
 import { Button, CardList, Text, UserList } from "../../components";
 import { useRouter } from "next/router";
 import { useSocket } from "../../hooks/useSocket";
-import { If } from "react-extras";
-import { profiles } from "../../types/enums";
 
 const Room: NextPage = () => {
-  const profile = sessionStorage.getItem("clientProfile");
-
-  const socket = useSocket("http://localhost:3333", {
-    profile,
-  });
+  const socket = useSocket(process.env.API_URL || "http://localhost:3333");
 
   const { cards, selectedCard } = useContext(GameContext);
   const [votes, setVotes] = useState<Array<number>>([]);
@@ -31,12 +25,16 @@ const Room: NextPage = () => {
 
     socket.emit("join:room", roomId);
 
-    socket.on("votes", (data: Array<any>) => {
+    socket.on("room:votes", (data: Array<any>) => {
       setVotes(data.map(({ value }) => value));
     });
 
-    socket.on("users", (data: Array<string>) => {
+    socket.on("room:users", (data: Array<string>) => {
       setUsers(data);
+    });
+
+    socket.on("room:visibility", (visible: boolean) => {
+      setHide(visible);
     });
   }, [roomId, socket]);
 
@@ -45,12 +43,20 @@ const Room: NextPage = () => {
       return;
     }
 
-    socket.emit("votes", selectedCard);
+    socket.emit("room:votes", selectedCard);
 
-    socket.on("votes", (data: Array<any>) => {
+    socket.on("room:votes", (data: Array<any>) => {
       setVotes(data.map(({ value }) => value));
     });
   }, [selectedCard, roomId, socket]);
+
+  const handleVisibility = () => {
+    socket.emit("room:visibility");
+  };
+
+  const handleReset = () => {
+    socket.emit("room:reset");
+  };
 
   return (
     <div className={styles.container}>
@@ -58,10 +64,8 @@ const Room: NextPage = () => {
       <Text>Escolha uma das opções abaixo:</Text>
       <CardList cards={cards} />
       <div className={styles.optionButtons}>
-        <If condition={profile === profiles.HOST}>
-          <Button>Resetar</Button>
-          <Button onClick={() => setHide(!hide)}>Revelar</Button>
-        </If>
+        <Button onClick={handleReset}>Resetar</Button>
+        <Button onClick={handleVisibility}>Revelar</Button>
         <Button href="/">Voltar</Button>
       </div>
       <br />
